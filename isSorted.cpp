@@ -4,11 +4,17 @@
 using namespace std;
 
 bool isSorted(const int* arr, const int size) {
+    // --- EDGE CASE HANDLING ADDED ---
+    if (size <= 1) {
+        return true;
+    }
+    
     for (int i = 0; i < size - 1; i++) {
         if (arr[i] > arr[i + 1]) {
             return false;
         }
     }
+    
     return true;
 }
 
@@ -42,7 +48,6 @@ void testNegativeValues() {
     assert(isSorted(arr, 5) == true);
 }
 
-// --- NEW EDGE CASE TESTS ADDED ---
 void testAllSameValues() {
     int arr[] = {7, 7, 7, 7};
     assert(isSorted(arr, 4) == true);
@@ -62,11 +67,9 @@ int main() {
     testSingleElement();
     testDescendingArray();
     testNegativeValues();
-    
-    // Run new tests
     testAllSameValues();
     testEmptyArray();
     
-    cout << "Edge case tests complete!" << endl;
+    cout << "All test cases passed successfully!" << endl;
     return 0;
 }
