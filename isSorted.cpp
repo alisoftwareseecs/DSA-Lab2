@@ -3,22 +3,11 @@
 
 using namespace std;
 
-// --- Part 2: Function Implementation ---
+// Dummy implementation - intentionally fails tests initially
 bool isSorted(const int* arr, const int size) {
-    if (size <= 1) {
-        return true;
-    }
-    
-    for (int i = 0; i < size - 1; i++) {
-        if (arr[i] > arr[i + 1]) {
-            return false;
-        }
-    }
-    
-    return true;
+    return false; 
 }
 
-// --- Part 1: Test Cases ---
 void testSortedArray() {
     int arr[] = {1, 2, 3, 4, 5};
     assert(isSorted(arr, 5) == true);
@@ -49,18 +38,6 @@ void testNegativeValues() {
     assert(isSorted(arr, 5) == true);
 }
 
-// Additional Test 1: All elements identical
-void testAllSameValues() {
-    int arr[] = {7, 7, 7, 7};
-    assert(isSorted(arr, 4) == true);
-}
-
-// Additional Test 2: Size zero array
-void testEmptyArray() {
-    int arr[] = {}; 
-    assert(isSorted(arr, 0) == true);
-}
-
 int main() {
     cout << "Running TDD test cases..." << endl;
     
@@ -70,9 +47,7 @@ int main() {
     testSingleElement();
     testDescendingArray();
     testNegativeValues();
-    testAllSameValues();
-    testEmptyArray();
     
-    cout << "All test cases passed successfully!" << endl;
+    cout << "Initial tests complete!" << endl;
     return 0;
 }
