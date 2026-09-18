@@ -3,9 +3,14 @@
 
 using namespace std;
 
-// Dummy implementation - intentionally fails tests initially
+// Core implementation added
 bool isSorted(const int* arr, const int size) {
-    return false; 
+    for (int i = 0; i < size - 1; i++) {
+        if (arr[i] > arr[i + 1]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 void testSortedArray() {
@@ -48,6 +53,6 @@ int main() {
     testDescendingArray();
     testNegativeValues();
     
-    cout << "Initial tests complete!" << endl;
+    cout << "Core tests passed!" << endl;
     return 0;
 }
