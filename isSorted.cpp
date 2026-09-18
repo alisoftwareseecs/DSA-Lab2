@@ -3,7 +3,6 @@
 
 using namespace std;
 
-// Core implementation added
 bool isSorted(const int* arr, const int size) {
     for (int i = 0; i < size - 1; i++) {
         if (arr[i] > arr[i + 1]) {
@@ -43,6 +42,17 @@ void testNegativeValues() {
     assert(isSorted(arr, 5) == true);
 }
 
+// --- NEW EDGE CASE TESTS ADDED ---
+void testAllSameValues() {
+    int arr[] = {7, 7, 7, 7};
+    assert(isSorted(arr, 4) == true);
+}
+
+void testEmptyArray() {
+    int arr[] = {}; 
+    assert(isSorted(arr, 0) == true);
+}
+
 int main() {
     cout << "Running TDD test cases..." << endl;
     
@@ -53,6 +63,10 @@ int main() {
     testDescendingArray();
     testNegativeValues();
     
-    cout << "Core tests passed!" << endl;
+    // Run new tests
+    testAllSameValues();
+    testEmptyArray();
+    
+    cout << "Edge case tests complete!" << endl;
     return 0;
 }
